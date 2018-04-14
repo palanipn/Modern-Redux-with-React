@@ -26,6 +26,10 @@
 .headline {
     text-align:left;
     color:red;
+    bold:true;
     font-family: "Times New Roman", Times, serif;
+}
+.common {
+
 }
 

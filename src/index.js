@@ -6,7 +6,7 @@ import SearchBar from './components/search_bar'
 import VideoList from './components/video_list'
 import VideoDetail from './components/video_detail'
 
-const API_KEY='AIzaSyDtBol_ESsOxu8EE9iAjs65g_4wZUdGTWg';
+
 
 export class App extends React.Component {
     constructor(props) {
@@ -15,20 +15,19 @@ export class App extends React.Component {
             videos: [],
         selectedVideo:null
         };
-        this.videoSearch('cricket');
+        this.videoSearch('jabardasth latest');
 
     }
     videoSearch(term){
         YTSearch({key: API_KEY, term: term}, (videos) => {
-            console.log('videosss****',videos)
             this.setState({videos:videos,selectedVideo:videos[0]});
-            console.log('selected video>>>>',this.state.selectedVideo)
         });
     }
     render(){
         const videoSearch=_.debounce((term)=>{this.videoSearch(term)},300);
         return (
-            <div ><h1 color={red} className="headline">PALANI SearchTube</h1>
+            <div className="common" >
+                <h1 className="headline"><strong>PALANI SearchTube</strong></h1>
                 <SearchBar onSearchTermChange={videoSearch}/>
                 <VideoDetail video={this.state.selectedVideo}/>
                 <VideoList
